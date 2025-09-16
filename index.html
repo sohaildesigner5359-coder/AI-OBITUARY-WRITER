@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Obituary Writer - Create Heartfelt Tributes in Minutes</title>
+    <meta name="description" content="Create meaningful, personalized obituaries with our AI writer. Honor your loved ones with beautifully crafted tributes that capture their unique life story.">
+    <meta name="keywords" content="ai obituary writer, obituary generator, funeral tribute, eulogy writer, memorial service, obituary template">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* CSS will be loaded from style.css */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-feather-alt logo-icon"></i>
+                <h1>AI Obituary Writer</h1>
+            </div>
+            <p class="tagline">Create compassionate and personalized obituaries to honor your loved ones</p>
+        </header>
+
+        <div class="main-content">
+            <div class="form-section">
+                <h2 class="section-title"><i class="fas fa-pencil-alt"></i> Create Obituary</h2>
+                
+                <form id="obituaryForm">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required placeholder="Enter the full name of the deceased">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <input type="number" id="age" name="age" placeholder="Enter age" min="0" max="120">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="details">Life Details & Accomplishments *</label>
+                        <textarea id="details" name="details" required placeholder="Include key information: personality, hobbies, family members, career, achievements, etc."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tone">Tone & Style</label>
+                        <select id="tone" name="tone">
+                            <option value="formal">Formal & Traditional</option>
+                            <option value="heartfelt" selected>Heartfelt & Personal</option>
+                            <option value="celebratory">Celebratory of Life</option>
+                            <option value="religious">Religious & Spiritual</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" id="generateBtn">
+                        <i class="fas fa-magic"></i> Generate Obituary
+                    </button>
+                </form>
+
+                <div class="loading" id="loading">
+                    <div class="spinner"></div>
+                    <p>Creating a thoughtful tribute... Please wait</p>
+                </div>
+
+                <div class="success-message" id="successMessage">
+                    <i class="fas fa-check-circle"></i> Your obituary has been generated successfully.
+                </div>
+
+                <div class="action-buttons" id="actionButtons" style="display: none;">
+                    <button onclick="copyText()" class="secondary-btn">
+                        <i class="fas fa-copy"></i> Copy to Clipboard
+                    </button>
+                    <button onclick="downloadPDF()" class="secondary-btn">
+                        <i class="fas fa-download"></i> Download as PDF
+                    </button>
+                    <button onclick="resetForm()">
+                        <i class="fas fa-plus"></i> Create Another
+                    </button>
+                </div>
+            </div>
+
+            <div class="preview-section">
+                <h2 class="section-title"><i class="fas fa-eye"></i> Preview</h2>
+                <div class="preview-container">
+                    <div class="obituary-template" id="obituaryPreview">
+                        <p>Your generated obituary will appear here. Our AI will create a respectful and personalized tribute based on the information you provide.</p>
+                        <p>Example of how it will look:</p>
+                        <p><strong>John Michael Smith</strong>, 78, of Portland, Oregon, passed away peacefully on November 12, 2023, surrounded by his loving family. John was a devoted husband, father, and grandfather who will be remembered for his kind heart and generous spirit.</p>
+                    </div>
+                </div>
+
+                <div class="feature-list">
+                    <h3>Why choose our AI Obituary Writer?</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Creates personalized, heartfelt tributes</li>
+                        <li><i class="fas fa-check"></i> Saves time during difficult moments</li>
+                        <li><i class="fas fa-check"></i> Professional results without writing experience</li>
+                        <li><i class="fas fa-check"></i> Multiple tone options to match your needs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="testimonials">
+            <h2 class="section-title"><i class="fas fa-comments"></i> User Testimonials</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"During our time of loss, this tool helped us create a beautiful obituary for my father. It captured his spirit perfectly and saved us so much stress."</p>
+                    <p class="testimonial-author">- Sarah J., Daughter</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"As a funeral director, I often recommend this service to families who are struggling to find the right words. The results are always compassionate and professional."</p>
+                    <p class="testimonial-author">- Michael T., Funeral Director</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"I needed to write an obituary for my grandmother and was overwhelmed with emotion. This AI writer helped me create a tribute that truly honored her memory."</p>
+                    <p class="testimonial-author">- James L., Grandson</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-section">
+            <h2 class="section-title"><i class="fas fa-question-circle"></i> Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <div class="faq-question">How does the AI Obituary Writer work? <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">Our AI uses advanced natural language processing to create personalized obituaries based on the information you provide. It analyzes your input and generates a respectful, coherent tribute in seconds.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Is the service completely free? <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">Yes, our basic obituary generation is completely free. We offer premium options for those who want additional features like multiple revisions or longer tributes.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">How long does it take to generate an obituary? <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">Typically, our AI generates a complete obituary in less than 30 seconds. The time may vary slightly based on the length and complexity of the information provided.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Can I edit the generated obituary? <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">Absolutely. The generated obituary is a starting point that you can customize as needed. We encourage personalization to make the tribute truly unique.</div>
+            </div>
+        </div>
+
+        <footer>
+            <p>AI Obituary Writer & Generator</p>
+            <p>Creating meaningful tributes for your loved ones</p>
+            <div class="footer-links">
+                <a href="#">Home</a>
+                <a href="#">About Us</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact</a>
+                <a href="#">Blog</a>
+            </div>
+            <p>&copy; 2023 AI Obituary Writer. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        // JavaScript will be loaded from script.js
+    </script>
+</body>
+</html>
